@@ -1,0 +1,76 @@
+#========= user endpoints ======
+
+# api call for creating user
+###
+POST http://127.0.0.1:8000/service-requests/user-register/
+Content-Type: application/json
+
+{
+"username": "user01",
+"first_name": "Arun",
+"last_name": "K",
+"email": "arun01@gmail.com",
+"password": "user01@123"
+}
+
+#============ service request api calls ==========
+
+# api call for listing service requests of user
+###
+GET http://127.0.0.1:8000/service-requests/
+Accept: application/json
+Authorization: Basic user01 user01@123
+
+# api call for posting service request
+###
+POST http://127.0.0.1:8000/service-requests/
+Content-Type: application/json
+Authorization: Basic user01 user01@123
+
+{
+"vehicle_number": "KL45Y5243",
+"vehicle_model": "Alto K10",
+"problem_description": "Engine light on.",
+"service_type": "Engine Repair",
+"priority": "High",
+"service_date": "2026-10-26"
+}
+
+# api call for listing specific service request of user
+###
+GET http://127.0.0.1:8000/service-requests/1/
+Accept: application/json
+Authorization: Basic user01 user01@123
+
+# api call for updating service request
+###
+PUT http://127.0.0.1:8000/service-requests/1/
+Content-Type: application/json
+Authorization: Basic user01 user01@123
+
+{
+"vehicle_number": "KL45AB1234",
+"vehicle_model": "Hyundai i20",
+"problem_description": "Engine noise and vibration need inspection.",
+"service_type": "Engine Repair",
+"priority": "Critical",
+"service_date": "2026-10-26"
+}
+
+# api call for deleting service request
+###
+DELETE http://127.0.0.1:8000/service-requests/1/
+Accept: application/json
+Authorization: Basic user01 user01@123
+
+# api call for listing total service requests by user
+###
+GET http://127.0.0.1:8000/service-requests/count/
+Accept: application/json
+Authorization: Basic user01 user01@123
+
+# api call for listing service requests with high or critical priority
+###
+GET http://127.0.0.1:8000/service-requests/high-critical/
+Accept: application/json
+Authorization: Basic user01 user01@123
